@@ -1,0 +1,22 @@
+- type: entity
+  id: GojoProjectilePurple
+  parent: BaseBullet
+  name: fireball
+  description: You better GITTAH WEIGH.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Imperial/Gojo/spells.rsi
+    layers:
+    - state: purple
+      shader: unshaded
+  - type: PointLight
+    radius: 2000
+    color: purple
+    energy: 200
+    castShadows: false
+  - type: Projectile
+    deleteOnCollide: false
+  - type: TimedDespawn
+    lifetime: 4
+  - type: ImmovableRod

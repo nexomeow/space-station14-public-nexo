@@ -1,0 +1,41 @@
+- type: entity
+  id: GojoActionPurple
+  name: action-name-spell-fireball3
+  description: action-description-spell-fireball3
+  noSpawn: true
+  components:
+  - type: MedievalTargetSpell
+  - type: WorldTargetAction
+    useDelay: 1
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    range: 60
+    icon:
+      sprite: Imperial/Gojo/spells.rsi
+      state: purple
+    event: !type:MedievalProjectileSpellEvent
+      projectilePrototype:
+        0: GojoProjectilePurple
+      targetSpellType: TargetOnLastMousePosition
+      spellCastDoAfter:
+        delay: 2.4
+        breakOnDropItem: false
+        breakOnWeightlessMove: false
+        breakOnMove: false
+        needHand: true
+        speedModifier: 0
+      speechPoints:
+        0.0:
+          speech: gojo-spell-cast
+          speechType: Emote
+          color: "#B277FF"
+          hideChat: true
+        2.4:
+          speech: gojo-spell-speach-purple
+          color: "#FF0000"
+          hideChat: true
+  - type: RuneOnCast
+    rune: ImaginaryMassEffect
+  - type: PlayAudioAfterSpellCast
+    sound:
+      path: /Audio/Imperial/Gojo/hollow-purple.ogg

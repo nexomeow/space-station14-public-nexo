@@ -1,0 +1,65 @@
+- type: entity
+  id: GojoProjectileBlue
+  parent: BaseBullet
+  name: BlackHole
+  description: You better GITTAH WEIGH.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Imperial/Gojo/spells.rsi
+    layers:
+    - state: blue
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#22CACB"
+    energy: 10
+    radius: 6
+    softness: 1
+    offset: "0, 0"
+  - type: Projectile
+    deleteOnCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 3.2
+      blackHoleExplode:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.26,-0.26,0.26,0.26"
+        density: 20
+        mask:
+        - Impassable
+        hard: false
+  - type: SingularityDistortion
+    intensity: 130
+    falloffPower: 1.5
+  - type: GravityWell
+    maxRange: 5
+    baseRadialAcceleration: 145
+    baseTangentialAcceleration: 10
+    gravPulsePeriod: 0.01
+  - type: ProjectileCursorFollower
+    linearVelocityIntensy: 3
+  - type: TriggerOnSimilarFixtureCollide
+    fixtureID: blackHoleExplode
+  - type: MedievalBlackHoleExplosion
+    targetColor: purple
+    explodeTime: 3
+    explodeUpdateRate: 0.01
+    blackHoleSizePerTick: 0.0035
+    blackHoleLightRangePerTick: 20
+    blackHoleLightEnergyPerTick: 20
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 20000
+    intensitySlope: 5
+    maxIntensity: 50
+

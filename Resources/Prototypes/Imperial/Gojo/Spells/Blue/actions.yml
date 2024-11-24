@@ -1,0 +1,38 @@
+- type: entity
+  id: GojoActionBlue
+  name: action-name-spell-black-hole3
+  description: action-description-spell-black-hole3
+  noSpawn: true
+  components:
+  - type: MedievalTargetSpell
+  - type: WorldTargetAction
+    useDelay: 1
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Imperial/Gojo/cursed-blue.ogg
+    icon:
+      sprite: Imperial/Gojo/spells.rsi
+      state: blue
+    event: !type:MedievalProjectileSpellEvent
+      projectilePrototype:
+        0: GojoProjectileBlue
+      targetSpellType: TargetOnLastMousePosition
+      spellCastDoAfter:
+        delay: 0.5
+        breakOnDropItem: false
+        breakOnWeightlessMove: false
+        breakOnMove: false
+        needHand: true
+        speedModifier: 0
+      speechPoints:
+        0.0:
+          speech: gojo-spell-cast
+          speechType: Emote
+          color: "#B277FF"
+          hideChat: true
+        0.5:
+          speech: gojo-spell-speach-blue
+          color: "#B277FF"
+          hideChat: true

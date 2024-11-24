@@ -154,4 +154,11 @@ public abstract partial class BaseActionEvent : HandledEntityEventArgs
     ///     The user performing the action.
     /// </summary>
     public EntityUid Performer;
+
+    // Imperial Magic Downstrea
+    /// <summary>
+    ///     The action the event belongs to.
+    /// </summary>
+    public Entity<BaseActionComponent> Action;
+    // Imperial Magic Downstream
 }

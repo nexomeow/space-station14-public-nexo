@@ -1,0 +1,19 @@
+- type: entity
+  id: ImaginaryMassEffect
+  name: effect
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Imperial/Gojo/spells.rsi
+    drawdepth: Effects
+    layers:
+    - state: imaginaryMassEffect
+      shader: unshaded
+  - type: Transform
+  - type: TimedDespawn
+    lifetime: 2.4
+  - type: PointLight
+    radius: 15
+    color: purple
+    energy: 10
+

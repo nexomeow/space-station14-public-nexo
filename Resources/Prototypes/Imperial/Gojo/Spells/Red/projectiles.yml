@@ -1,0 +1,43 @@
+- type: entity
+  id: GojoProjectileRed
+  parent: BulletRocket
+  name: fireball
+  description: You better GITTAH WEIGH.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Imperial/Gojo/spells.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 50
+    intensitySlope: 7
+    totalIntensity: 220
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 20
+    color: red
+    energy: 7
+  - type: SpawnEntityOnTrigger
+    spawnedEntitiesPrototype:
+      - FireballShockWaveEffect
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      blackHoleExplode:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.15,0.15,0.15"
+        density: 20
+        layer:
+        - Impassable
+        hard: false

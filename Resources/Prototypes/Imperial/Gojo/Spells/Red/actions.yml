@@ -1,0 +1,38 @@
+- type: entity
+  id: GojoActionRed
+  name: action-name-spell-fireball3
+  description: action-description-spell-fireball3
+  noSpawn: true
+  components:
+  - type: MedievalTargetSpell
+  - type: WorldTargetAction
+    useDelay: 1
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Imperial/Gojo/cursed-red.ogg
+    icon:
+      sprite: Imperial/Gojo/spells.rsi
+      state: red
+    event: !type:MedievalProjectileSpellEvent
+      projectilePrototype:
+        0: GojoProjectileRed
+      targetSpellType: TargetOnLastMousePosition
+      spellCastDoAfter:
+        delay: 0.5
+        breakOnDropItem: false
+        breakOnWeightlessMove: false
+        breakOnMove: false
+        needHand: true
+        speedModifier: 0.3
+      speechPoints:
+        0.0:
+          speech: gojo-spell-cast
+          speechType: Emote
+          color: "#B277FF"
+          hideChat: true
+        0.5:
+          speech: gojo-spell-speach-red
+          color: "#FF0000"
+          hideChat: true

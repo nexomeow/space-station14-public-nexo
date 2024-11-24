@@ -524,6 +524,8 @@ public abstract class SharedActionsSystem : EntitySystem
             // This here is required because of client-side prediction (RaisePredictiveEvent results in event re-use).
             actionEvent.Handled = false;
             var target = performer;
+            actionEvent.Performer = performer; // Imperial Magic Downstream
+            actionEvent.Action = (actionId, action); // Imperial Magic Downstream
 
             if (!action.RaiseOnUser && action.Container != null && !HasComp<MindComponent>(action.Container))
                 target = action.Container.Value;

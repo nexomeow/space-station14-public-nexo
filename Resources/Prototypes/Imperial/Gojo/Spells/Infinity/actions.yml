@@ -1,0 +1,16 @@
+- type: entity
+  id: GojoActionInfinity
+  name: gojo-spell-infinity
+  description: gojo-spell-infinity-desc
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Imperial/Gojo/cursed-blue.ogg
+    icon:
+      sprite: Imperial/Gojo/spells.rsi
+      state: red
+    event: !type:GojoInfinityAbilityToggleEvent
